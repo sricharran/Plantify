@@ -3,5 +3,5 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/Plantify/' // 👈 EXACT repo name
+  base: '/e-plantShopping/' // 👈 EXACT repo name
 })
