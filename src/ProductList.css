@@ -1,34 +1,38 @@
 /* =========================
-   RESET & GLOBAL STYLES
+   RESET & GLOBAL
 ========================= */
-body, h1, ul {
-  margin: 0;
-  padding: 0;
+* {
+  box-sizing: border-box;
 }
 
 body {
+  margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
+  background-color: #0f0f0f; /* deep black */
+  color: #e0e0e0;
 }
 
 /* =========================
    NAVBAR
 ========================= */
+/* NAVBAR - DARK THEME */
 .navbar {
-  background-color: #4CAF50;
-  color: white;
-  padding: 15px 30px;
+  background-color: #1a1a1a; /* dark grey */
+  color: #ffffff;
+  padding: 16px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 20px;
+  border-bottom: 1px solid #2a2a2a;
 }
 
+
 .navbar a {
-  color: white;
+  color: #ffffff;
   text-decoration: none;
-  font-size: 28px;
+  font-size: 26px;
 }
+
 
 .cart {
   position: relative;
@@ -40,20 +44,28 @@ body {
   position: absolute;
   top: -8px;
   right: -12px;
-  background: red;
-  color: white;
+  background-color: #4CAF50; /* green accent */
+  color: black;
   border-radius: 50%;
   padding: 2px 8px;
   font-size: 14px;
+  font-weight: bold;
 }
 
+.product-grid {
+  background-color: #121212;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+
 /* =========================
-   PRODUCT GRID WRAPPER
+   PRODUCT GRID
 ========================= */
 .product-grid {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 30px;
+  padding: 40px 20px;
 }
 
 /* =========================
@@ -63,7 +75,7 @@ body {
   font-size: 26px;
   font-weight: bold;
   margin: 40px 0 20px;
-  color: #2e7d32;
+  color: #4CAF50;
   text-align: center;
 }
 
@@ -74,25 +86,24 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
-  width: 100%;
 }
 
 /* =========================
    PRODUCT CARD
 ========================= */
 .product-card {
-  background-color: #ffffff;
+  background-color: #1e1e1e;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 12px;
   text-align: center;
   position: relative;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
+  border: 1px solid #2a2a2a;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .product-card:hover {
-  transform: scale(1.05);
-  z-index: 2;
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
 }
 
 /* =========================
@@ -100,14 +111,15 @@ body {
 ========================= */
 .product-card::before {
   content: "SALE";
-  background-color: #e74c3c;
-  color: white;
+  background-color: #4CAF50;
+  color: black;
   position: absolute;
   top: 0;
   right: 0;
   padding: 6px 12px;
-  font-size: 14px;
-  border-radius: 0 0 0 8px;
+  font-size: 13px;
+  border-radius: 0 0 0 10px;
+  font-weight: bold;
 }
 
 /* =========================
@@ -117,7 +129,9 @@ body {
   width: 100%;
   height: 220px;
   object-fit: contain;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  background-color: #121212;
+  border-radius: 8px;
 }
 
 /* =========================
@@ -125,15 +139,17 @@ body {
 ========================= */
 .product-card h3 {
   margin: 10px 0;
+  color: #ffffff;
 }
 
 .product-card p {
-  margin: 5px 0;
+  margin: 6px 0;
+  color: #cfcfcf;
 }
 
 .product-card p:last-of-type {
   font-size: 18px;
-  color: #e74c3c;
+  color: #4CAF50;
   font-weight: bold;
 }
 
@@ -142,32 +158,34 @@ body {
 ========================= */
 .product-card button {
   background-color: #4CAF50;
-  color: white;
+  color: black;
   border: none;
-  padding: 10px 20px;
+  padding: 10px 22px;
   cursor: pointer;
-  margin-top: 12px;
-  font-size: 16px;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
+  margin-top: 14px;
+  font-size: 15px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .product-card button:hover {
-  background-color: #45a049;
+  background-color: #43a047;
+  transform: scale(1.05);
 }
 
 .product-card button:disabled {
-  background-color: grey;
+  background-color: #555;
+  color: #999;
   cursor: not-allowed;
 }
 
 /* =========================
-   RESPONSIVE NAVBAR
+   RESPONSIVE
 ========================= */
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
   }
 
   .navbar a {

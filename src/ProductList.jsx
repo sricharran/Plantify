@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+
 import './ProductList.css';
 import CartItem from './CartItem';
 import { useDispatch, useSelector } from 'react-redux';
@@ -10,6 +11,17 @@ function ProductList({ onHomeClick }) {
 
     const [showCart, setShowCart] = useState(false);
     const [addedToCart, setAddedToCart] = useState({});
+
+    useEffect(() => {
+    const updatedAddedToCart = {};
+
+    cartItems.forEach(item => {
+        updatedAddedToCart[item.name] = true;
+    });
+
+    setAddedToCart(updatedAddedToCart);
+    }, [cartItems]);
+
 
     // ✅ Total items count for cart icon
     const totalCartQuantity = cartItems.reduce(
@@ -257,19 +269,15 @@ function ProductList({ onHomeClick }) {
     // ✅ Correct Redux integration
     const handleAddToCart = (plant) => {
         dispatch(addItem(plant));
-
-        setAddedToCart(prev => ({
-            ...prev,
-            [plant.name]: true
-        }));
     };
+
 
     return (
         <div>
             {/* NAVBAR */}
             <div className="navbar" style={styleObj}>
                 <a href="/" onClick={handleHomeClick} style={styleA}>
-                    Paradise Nursery
+                    Plantify
                 </a>
 
                 <a href="#" onClick={handleCartClick} style={styleA}>
